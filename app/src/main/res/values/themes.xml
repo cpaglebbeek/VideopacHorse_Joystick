@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.VphJoystick" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/vph_bg</item>
+        <item name="android:statusBarColor">@color/vph_bg</item>
+        <item name="android:navigationBarColor">@color/vph_bg</item>
+        <item name="android:colorAccent">@color/vph_accent</item>
+        <item name="android:textColorPrimary">@color/vph_text</item>
+        <item name="android:textColorSecondary">@color/vph_text_dim</item>
+    </style>
+</resources>

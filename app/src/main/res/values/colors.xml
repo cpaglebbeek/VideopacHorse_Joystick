@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Videopac-huisstijl -->
+    <color name="vph_bg">#14151c</color>
+    <color name="vph_surface">#1d1f2a</color>
+    <color name="vph_pad">#23242e</color>
+    <color name="vph_accent">#f5a623</color>
+    <color name="vph_accent_pressed">#ffc35c</color>
+    <color name="vph_text">#e8e8ee</color>
+    <color name="vph_text_dim">#8b8d9c</color>
+</resources>
