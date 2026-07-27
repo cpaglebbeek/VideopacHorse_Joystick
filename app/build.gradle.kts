@@ -49,8 +49,12 @@ android {
         outputs.all {
             val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
             val suffix = if (variant.buildType.name == "release") "release" else "debug"
+            /* Naam = VPHJoystick, niet VideopacHorseJoystick. HorseAPK leidt het
+             * projectnummer uit de bestandsnaam af en controleert dat het package
+             * erop eindigt (nl.icthorse.vphjoystick). Met de oude naam viel die
+             * gate elke release om en moest de APK met de hand hernoemd worden. */
             output.outputFileName =
-                "VideopacHorseJoystick-v${variant.versionName}-${suffix}.apk"
+                "VPHJoystick-v${variant.versionName}-${suffix}.apk"
         }
     }
 
