@@ -3,8 +3,13 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-val appVersion = "0.4.0"
-val appCodename = "Rusch"
+/* Versie komt uit version.json — de familie draait lock-step en die stond hier
+ * al op 0.4.0-Rusch terwijl de repo 0.4.2 was. Eén bron, geen drift meer. */
+@Suppress("UNCHECKED_CAST")
+val versionInfo = groovy.json.JsonSlurper()
+    .parse(rootProject.file("version.json")) as Map<String, String>
+val appVersion = versionInfo["version"] ?: error("version ontbreekt in version.json")
+val appCodename = versionInfo["codename"] ?: error("codename ontbreekt in version.json")
 
 android {
     namespace = "nl.icthorse.vphjoystick"
@@ -25,7 +30,7 @@ android {
         applicationId = "nl.icthorse.vphjoystick"
         minSdk = 26
         targetSdk = 35
-        versionCode = 2
+        versionCode = 3
         versionName = "$appVersion-$appCodename"
     }
 

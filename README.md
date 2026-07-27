@@ -11,18 +11,25 @@ Onderdeel van de **VideopacHorse-familie** (zie `Meta_VideopacHorse`).
 
 1. De host opent de Videopac-pagina en toont daar een **6-tekens sessiecode**
    (alfabet A-Z en 2-9).
-2. Je tikt die code in de app en drukt op **Koppel** → `ctrl-join`.
-3. De server geeft een **ctrl-token** en een **slot** terug: slot 0 = *Speler 1*,
-   slot 1 = *Speler 2*. De app toont dat als koptekst.
+2. Je tikt de **joystickcode van de speler die je wilt zijn** in de app en drukt op
+   **Koppel** → `ctrl-join`. Sinds v0.5.0 toont de pagina er twee: één voor speler 1 en
+   één voor speler 2 (plus een aparte gastcode, die hier NIET werkt).
+3. De server geeft een **ctrl-token** en een **slot** terug: de code bepaalt het slot —
+   P1-code → slot 0 = *Speler 1*, P2-code → slot 1 = *Speler 2*. De app toont dat als
+   koptekst.
 4. De app stuurt bij **elke** maskverandering én elke **500 ms** (heartbeat) een
    `ctrl-input` met de actuele bitmask. De host haalt die op met `ctrl-poll`.
 5. Bij afsluiten of wegschakelen stuurt de app `ctrl-input mask=0` + `ctrl-leave`,
    zodat het slot vrijkomt.
 
-**Maximaal 2 joysticks per sessie.** Een derde poging krijgt HTTP 409 en de
-melding "Er zijn al 2 joysticks gekoppeld aan deze sessie." Is er een
-"Samen spelen"-gast verbonden, dan is slot 1 al bezet en kan alleen slot 0
-nog gekoppeld worden.
+**Eén telefoon per speler.** Een tweede telefoon op dezelfde code krijgt HTTP 409
+("deze plek is al bezet door een telefoon"). Uitzondering: is de zittende telefoon al
+langer dan 60 s stil (crash, scherm op slot), dan neem je de plek meteen over — anders
+zou je op de GC moeten wachten precies wanneer je snel terug wilt in het spel.
+
+Een "Samen spelen"-gast blokkeert je niet meer. Gast en telefoon op speler 2 delen die
+plek en hun invoer **telt bij elkaar op**, net zoals toetsenbord en gamepad dat altijd al
+deden. De app meldt dat op het joystickscherm.
 
 ## Geen Bluetooth, geen HID — bewust
 
@@ -38,7 +45,7 @@ nog gekoppeld worden.
 - **Rechtenvrij op één na.** Het manifest bevat uitsluitend `INTERNET`. Geen
   Bluetooth, geen locatie, geen opslag, geen achtergronddiensten.
 
-## Protocol-spec v0.4.0 (bindend voor app, web én API)
+## Protocol-spec v0.5.0 (bindend voor app, web én API)
 
 Basis-URL: `https://horsecloud55.ddns.net/videopac/api/` — POST, JSON in/uit.
 In de app is dit een constante (`Api.DEFAULT_BASE_URL`), maar overschrijfbaar
@@ -46,7 +53,7 @@ via het kleine server-veld op het koppelscherm (alleen bedoeld om te testen).
 
 | Actie | Request | Response |
 |---|---|---|
-| `ctrl-join` | `{action:"ctrl-join", code:"ABC234"}` | `{ctrl_token (48 hex), slot: 0\|1, expires_at}` |
+| `ctrl-join` | `{action:"ctrl-join", code:"ABC234"}` | `{ctrl_token (48 hex), slot: 0\|1, expires_at}` — `code` is een JOYSTICKCODE; het slot volgt eruit (v0.5.0). Een gastcode geeft hier 400. |
 | `ctrl-input` | `{action:"ctrl-input", token:<ctrl_token>, mask:0..31}` | `{ok:true}` |
 | `ctrl-poll` | `{action:"ctrl-poll", token:<host_token>}` | `{controllers:[{slot, mask, age_ms}]}` |
 | `ctrl-leave` | `{action:"ctrl-leave", token:<ctrl_token>}` | `{ok:true}` |

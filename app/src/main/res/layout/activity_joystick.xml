@@ -26,6 +26,17 @@
         android:textSize="14sp"
         android:text="@string/status_connected" />
 
+    <TextView
+        android:id="@+id/sharedHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:textColor="@color/vph_text"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:text="@string/status_shared_p2" />
+
     <nl.icthorse.vphjoystick.JoystickView
         android:id="@+id/joystickView"
         android:layout_width="match_parent"

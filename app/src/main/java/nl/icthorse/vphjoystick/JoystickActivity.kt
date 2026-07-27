@@ -31,6 +31,7 @@ class JoystickActivity : Activity(), ControllerLink.Listener {
 
     private lateinit var playerText: TextView
     private lateinit var statusText: TextView
+    private lateinit var sharedHint: TextView
     private lateinit var joystickView: JoystickView
     private lateinit var fireButton: TextView
 
@@ -45,6 +46,7 @@ class JoystickActivity : Activity(), ControllerLink.Listener {
 
         playerText = findViewById(R.id.playerText)
         statusText = findViewById(R.id.statusText)
+        sharedHint = findViewById(R.id.sharedHint)
         joystickView = findViewById(R.id.joystickView)
         fireButton = findViewById(R.id.fireButton)
 
@@ -60,6 +62,7 @@ class JoystickActivity : Activity(), ControllerLink.Listener {
 
         playerText.text = getString(R.string.player_n, slot + 1)
         statusText.text = getString(R.string.status_connected)
+        showSharedHint(slot)
 
         joystickView.onDirectionChanged = { mask ->
             directionMask = mask
@@ -116,9 +119,18 @@ class JoystickActivity : Activity(), ControllerLink.Listener {
         )
     }
 
+    /* Speler 2 kan ook door een gast van "Samen spelen" worden bestuurd; sinds
+     * v0.5.0 sluiten die twee elkaar niet meer uit maar tellen ze op. Wie op deze
+     * plek zit hoort dat te weten, anders lijkt het alsof zijn stick "vanzelf"
+     * beweegt. */
+    private fun showSharedHint(slot: Int) {
+        sharedHint.visibility = if (slot == 1) android.view.View.VISIBLE else android.view.View.GONE
+    }
+
     /** Na een 401 opnieuw gekoppeld — mogelijk in een ander slot. */
     override fun onRejoined(slot: Int) {
         playerText.text = getString(R.string.player_n, slot + 1)
+        showSharedHint(slot)
         statusText.setTextColor(getColor(R.color.vph_text))
         statusText.text = getString(R.string.status_rejoined)
     }

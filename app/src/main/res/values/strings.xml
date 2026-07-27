@@ -3,27 +3,28 @@
     <string name="app_name">VideopacHorse Joystick</string>
 
     <!-- Koppelscherm -->
-    <string name="pair_intro">Tik de sessiecode over van de Videopac-pagina. Er is géén Bluetooth nodig — de koppeling loopt via internet.</string>
-    <string name="label_code">Sessiecode (6 tekens)</string>
+    <string name="pair_intro">Tik de joystickcode over van de speler die je wilt zijn. De Videopac-pagina toont er twee: één voor speler 1 en één voor speler 2. Er is géén Bluetooth nodig — de koppeling loopt via internet.</string>
+    <string name="label_code">Joystickcode (6 tekens)</string>
     <string name="hint_code">ABC234</string>
     <string name="join">Koppel</string>
     <string name="joining">Koppelen…</string>
     <string name="label_server">Server (alleen wijzigen om te testen)</string>
-    <string name="pair_footer">Maximaal 2 joysticks per sessie. De app vraagt geen enkel recht behalve internet en bestuurt niets op je telefoon.</string>
+    <string name="pair_footer">Eén telefoon per speler; welke speler je wordt, bepaalt de code die je intikt. De app vraagt geen enkel recht behalve internet en bestuurt niets op je telefoon.</string>
     <string name="status_joining">Bezig met koppelen…</string>
 
     <!-- Joystick-scherm -->
     <string name="player_n">Speler %1$d</string>
     <string name="player_1">Speler 1</string>
     <string name="status_connected">Verbonden — je input gaat live naar de Videopac-pagina</string>
+    <string name="status_shared_p2">Je deelt speler 2 met de gast: jullie invoer telt bij elkaar op.</string>
     <string name="status_lost">Verbinding kwijt — opnieuw proberen…</string>
     <string name="status_rejoined">Opnieuw gekoppeld — je input gaat weer live naar de pagina</string>
     <string name="fire">FIRE</string>
 
     <!-- Fouten -->
     <string name="error_code_length">Vul de volledige code van 6 tekens in (letters A-Z en cijfers 2-9).</string>
-    <string name="error_slots_full">Er zijn al 2 joysticks gekoppeld aan deze sessie.</string>
-    <string name="error_unknown_code">Onbekende of verlopen code. Vraag de host om een nieuwe code.</string>
+    <string name="error_slots_full">Deze plek is al bezet door een andere telefoon. Vraag de host om de joystickcode van de andere speler.</string>
+    <string name="error_unknown_code">Onbekende of verlopen code. Let op: de gastcode van “Samen spelen” werkt hier niet — je hebt een joystickcode nodig.</string>
     <string name="error_session_gone">De sessie is gestopt of verlopen. Vraag de host om een nieuwe code en koppel opnieuw.</string>
     <string name="error_server">De server gaf een fout (code %1$d). Probeer het zo opnieuw.</string>
     <string name="error_network">Geen verbinding met de server. Controleer je internetverbinding en de server-URL.</string>
