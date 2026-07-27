@@ -8,4 +8,5 @@
     <color name="vph_accent_pressed">#ffc35c</color>
     <color name="vph_text">#e8e8ee</color>
     <color name="vph_text_dim">#8b8d9c</color>
+    <color name="vph_error">#ff6b5e</color>
 </resources>

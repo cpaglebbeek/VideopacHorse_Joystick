@@ -3,7 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-val appCodename = "Gust"
+val appVersion = "0.4.0"
+val appCodename = "Rusch"
 
 android {
     namespace = "nl.icthorse.vphjoystick"
@@ -24,8 +25,8 @@ android {
         applicationId = "nl.icthorse.vphjoystick"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.2.0-Gust"
+        versionCode = 2
+        versionName = "$appVersion-$appCodename"
     }
 
     buildTypes {

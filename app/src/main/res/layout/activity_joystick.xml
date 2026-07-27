@@ -7,15 +7,14 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/deviceNameText"
+        android:id="@+id/playerText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
         android:gravity="center"
         android:textColor="@color/vph_accent"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="VPH-????" />
+        android:text="@string/player_1" />
 
     <TextView
         android:id="@+id/statusText"
@@ -25,17 +24,7 @@
         android:gravity="center"
         android:textColor="@color/vph_text"
         android:textSize="14sp"
-        android:text="@string/status_starting" />
-
-    <TextView
-        android:id="@+id/hintText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:textColor="@color/vph_text_dim"
-        android:textSize="12sp"
-        android:text="@string/hint_player" />
+        android:text="@string/status_connected" />
 
     <nl.icthorse.vphjoystick.JoystickView
         android:id="@+id/joystickView"

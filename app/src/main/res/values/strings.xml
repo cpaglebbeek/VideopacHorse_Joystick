@@ -2,24 +2,31 @@
 <resources>
     <string name="app_name">VideopacHorse Joystick</string>
 
-    <!-- Statusregel -->
-    <string name="status_starting">Bluetooth wordt gestart…</string>
-    <string name="status_advertising">Zichtbaar als %1$s — wacht op verbinding met de Videopac-pagina…</string>
-    <string name="status_connected">%1$s verbonden — je stick stuurt nu speler-input</string>
-    <string name="status_stopped">Bluetooth gestopt</string>
+    <!-- Koppelscherm -->
+    <string name="pair_intro">Tik de sessiecode over van de Videopac-pagina. Er is géén Bluetooth nodig — de koppeling loopt via internet.</string>
+    <string name="label_code">Sessiecode (6 tekens)</string>
+    <string name="hint_code">ABC234</string>
+    <string name="join">Koppel</string>
+    <string name="joining">Koppelen…</string>
+    <string name="label_server">Server (alleen wijzigen om te testen)</string>
+    <string name="pair_footer">Maximaal 2 joysticks per sessie. De app vraagt geen enkel recht behalve internet en bestuurt niets op je telefoon.</string>
+    <string name="status_joining">Bezig met koppelen…</string>
 
-    <string name="hint_player">Open de Videopac-pagina in Chrome/Edge en kies daar “Joystick koppelen”.</string>
-    <string name="hint_connected">Beweeg de stick en druk op FIRE — de webpagina ontvangt alles live.</string>
-    <string name="hint_permission_rationale">De app heeft “Apparaten in de buurt” nodig om zichzelf via Bluetooth zichtbaar te maken voor de Videopac-pagina. Er wordt niets gescand en niets naar internet gestuurd.</string>
-    <string name="hint_open_settings">Tik hier om Instellingen te openen en de permissie alsnog te geven.</string>
-    <string name="hint_retry">Tik hier om het opnieuw te proberen.</string>
-
+    <!-- Joystick-scherm -->
+    <string name="player_n">Speler %1$d</string>
+    <string name="player_1">Speler 1</string>
+    <string name="status_connected">Verbonden — je input gaat live naar de Videopac-pagina</string>
+    <string name="status_lost">Verbinding kwijt — opnieuw proberen…</string>
+    <string name="status_rejoined">Opnieuw gekoppeld — je input gaat weer live naar de pagina</string>
     <string name="fire">FIRE</string>
 
     <!-- Fouten -->
-    <string name="error_no_bluetooth">Dit toestel heeft geen Bluetooth. De joystick-app kan niet werken.</string>
-    <string name="error_bluetooth_off">Bluetooth staat uit. Zet Bluetooth aan — de app gaat dan automatisch verder.</string>
-    <string name="error_no_peripheral">Dit toestel ondersteunt geen BLE-peripheral-modus (advertising). De app kan zichzelf daardoor niet zichtbaar maken voor de webpagina. Probeer een ander Android-toestel.</string>
-    <string name="error_permissions">Bluetooth-permissies geweigerd. Geef de app toestemming via Instellingen ▸ Apps ▸ VideopacHorse Joystick ▸ Rechten — de app gaat daarna automatisch verder.</string>
-    <string name="error_advertise_failed">Advertising starten mislukt (code %1$d). Zet Bluetooth uit en weer aan en probeer opnieuw.</string>
+    <string name="error_code_length">Vul de volledige code van 6 tekens in (letters A-Z en cijfers 2-9).</string>
+    <string name="error_slots_full">Er zijn al 2 joysticks gekoppeld aan deze sessie.</string>
+    <string name="error_unknown_code">Onbekende of verlopen code. Vraag de host om een nieuwe code.</string>
+    <string name="error_session_gone">De sessie is gestopt of verlopen. Vraag de host om een nieuwe code en koppel opnieuw.</string>
+    <string name="error_server">De server gaf een fout (code %1$d). Probeer het zo opnieuw.</string>
+    <string name="error_network">Geen verbinding met de server. Controleer je internetverbinding en de server-URL.</string>
+    <string name="error_network_detail">Geen verbinding met de server: %1$s</string>
+    <string name="error_bad_response">Onverwacht antwoord van de server. Controleer de server-URL.</string>
 </resources>
