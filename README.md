@@ -88,3 +88,4 @@ handtekening = eerst de-installeren).
 | **`VideopacHorse_Joystick`** | deze repo: BLE-joystick-controller |
 
 Versie: **0.2.0-Gust** (zie `version.json`). Licentie: zie `LICENSE`.
+- HorseAPK-projectnaam: **VPHJoystick** (publish-gate eist package-suffix-match met nl.icthorse.vphjoystick).
